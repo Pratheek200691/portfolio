@@ -1,0 +1,187 @@
+
+@keyframes rotate-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes rotate-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+@keyframes gear-rotate-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes gear-rotate-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+@keyframes robot-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes robot-pulse {
+  0%, 100% { box-shadow: 0 0 20px var(--clr-cyan-glow); }
+  50%       { box-shadow: 0 0 40px var(--clr-cyan-glow), 0 0 80px rgba(0, 212, 255, 0.1); }
+}
+
+@keyframes eye-glow-pulse {
+  0%, 100% { opacity: 0.8; filter: blur(0px); }
+  50%       { opacity: 1; filter: blur(1px); }
+}
+
+@keyframes eye-scan {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { transform: translateX(200%); opacity: 0; }
+}
+
+@keyframes mouth-speak {
+  0%   { transform: scaleY(0.2); }
+  25%  { transform: scaleY(1); }
+  50%  { transform: scaleY(0.4); }
+  75%  { transform: scaleY(0.9); }
+  100% { transform: scaleY(0.2); }
+}
+
+@keyframes mouth-led-blink {
+  0%, 100% { opacity: 0.2; }
+  50%       { opacity: 1; }
+}
+
+@keyframes antenna-pulse {
+  0%, 100% {
+    box-shadow: 0 0 4px var(--clr-cyan), 0 0 8px var(--clr-cyan-glow);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 8px var(--clr-cyan), 0 0 16px var(--clr-cyan-glow);
+    transform: scale(1.2);
+  }
+}
+
+@keyframes waveform-1 {
+  0%, 100% { height: 4px; }
+  50%       { height: 22px; }
+}
+@keyframes waveform-2 {
+  0%, 100% { height: 8px; }
+  30%       { height: 28px; }
+  70%       { height: 10px; }
+}
+@keyframes waveform-3 {
+  0%, 100% { height: 16px; }
+  40%       { height: 6px; }
+}
+@keyframes waveform-4 {
+  0%, 100% { height: 6px; }
+  20%       { height: 24px; }
+  80%       { height: 12px; }
+}
+@keyframes waveform-5 {
+  0%, 100% { height: 10px; }
+  60%       { height: 30px; }
+}
+@keyframes waveform-6 {
+  0%, 100% { height: 14px; }
+  35%       { height: 8px; }
+  65%       { height: 26px; }
+}
+@keyframes waveform-7 {
+  0%, 100% { height: 4px; }
+  45%       { height: 20px; }
+}
+
+@keyframes hud-rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes hud-rotate-slow-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes status-pulse-active {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--clr-cyan-glow); }
+  50%       { opacity: 0.8; box-shadow: 0 0 0 6px transparent; }
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px var(--clr-cyan-glow); }
+  50%       { box-shadow: 0 0 20px var(--clr-cyan-glow), 0 0 40px rgba(0, 212, 255, 0.1); }
+}
+
+@keyframes phone-scan {
+  0%   { top: 30px; opacity: 0.8; }
+  90%  { top: calc(100% - 30px); opacity: 0.8; }
+  100% { top: calc(100% - 30px); opacity: 0; }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.section--entering {
+  pointer-events: none;
+}
+
+.section--exiting {
+  pointer-events: none;
+}
+
+.boot-line::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background: var(--clr-cyan);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: blink-cursor 0.8s step-end infinite;
+}
+
+.boot-line:not(:last-child)::after {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .gears-container,
+  .particles-canvas {
+    display: none;
+  }
+}

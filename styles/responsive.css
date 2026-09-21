@@ -1,0 +1,321 @@
+
+@media (max-width: 1024px) {
+  :root {
+    --robot-w: 220px;
+    --stage-pad: 2rem;
+  }
+
+  .robot-face-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .robot-faceplate {
+    width: 110px;
+  }
+
+  .robot-eye {
+    width: 36px;
+    height: 22px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: unset;
+  }
+
+  .about-stats .stat-item {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .kotlin-layout {
+    grid-template-columns: 1fr;
+    gap: var(--gap-lg);
+  }
+
+  .phone-mockup {
+    display: none;
+  }
+
+  .project-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --robot-w: 0px;
+    --nav-w: 0px;
+    --stage-pad: 1.25rem;
+  }
+
+  body {
+    cursor: auto;
+    overflow: auto;
+  }
+
+    .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+
+    button { cursor: pointer; }
+  a { cursor: pointer; }
+
+    .main-app {
+    flex-direction: column;
+    overflow: auto;
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+  }
+
+    .side-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 56px;
+    background: rgba(8, 10, 15, 0.95);
+    border-top: 1px solid var(--clr-border);
+    border-left: none;
+    padding: 8px var(--gap-md);
+    gap: var(--gap-sm);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-counter-display {
+    display: none;
+  }
+
+  .nav-title-label {
+    display: none;
+  }
+
+  .nav-dots {
+    flex-direction: row;
+  }
+
+  .nav-arrows {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+    .voice-controls {
+    top: var(--gap-sm);
+    right: var(--gap-sm);
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .voice-label {
+    display: none;
+  }
+
+    .stage {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: visible;
+    height: auto;
+  }
+
+    .robot-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    padding: var(--gap-lg);
+    border-left: none;
+    border-bottom: 1px solid var(--clr-border);
+    gap: var(--gap-lg);
+    background: linear-gradient(180deg, var(--clr-bg-2), var(--clr-bg));
+  }
+
+  .robot-face-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+
+  .robot-faceplate {
+    width: 90px;
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .robot-eye {
+    width: 28px;
+    height: 18px;
+  }
+
+  .robot-eyes {
+    gap: 10px;
+  }
+
+  .robot-waveform {
+    height: 28px;
+  }
+
+  .waveform-bar {
+    width: 3px;
+  }
+
+    .robot-container > :not(.robot-face-wrapper) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+    .section {
+    position: relative;
+    padding: var(--gap-xl) var(--stage-pad) 80px;     min-height: auto;
+    overflow: visible;
+  }
+
+  .section:not(:first-child) {
+    display: none;
+  }
+
+  .hero-name {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .section-title {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    min-width: unset;
+  }
+
+  .contact-socials {
+    flex-direction: row;
+  }
+
+  .project-feature-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-stats {
+    min-width: unset;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+    .timeline {
+    padding-left: 24px;
+  }
+
+  .timeline-dot {
+    left: -20px;
+  }
+
+    .speech-text-container {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: 2rem;
+  }
+
+  .tech-badges {
+    gap: 6px;
+  }
+
+  .badge {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+
+  .project-card-header {
+    flex-wrap: wrap;
+  }
+
+  .project-badge {
+    margin-left: 0;
+  }
+
+  .project-actions {
+    flex-direction: column;
+  }
+
+  .btn-project {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .status-bar-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .status-bar-label {
+    min-width: unset;
+  }
+}
+
+@media (min-width: 1400px) {
+  :root {
+    --robot-w: 340px;
+  }
+
+  .robot-face-wrapper {
+    width: 220px;
+    height: 220px;
+  }
+
+  .robot-faceplate {
+    width: 160px;
+  }
+
+  .hero-name {
+    font-size: 5rem;
+  }
+
+  .section-content {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    display: flex !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    position: relative !important;
+    inset: auto !important;
+  }
+}

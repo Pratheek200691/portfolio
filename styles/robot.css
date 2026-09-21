@@ -1,0 +1,352 @@
+
+.robot-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--robot-w);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-lg);
+  padding: var(--gap-xl) var(--gap-lg);
+  background: linear-gradient(
+    180deg,
+    rgba(8, 10, 15, 0.3) 0%,
+    rgba(13, 17, 23, 0.5) 50%,
+    rgba(8, 10, 15, 0.3) 100%
+  );
+  border-left: 1px solid var(--clr-border);
+  backdrop-filter: blur(4px);
+}
+
+.robot-face-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: robot-float 4s ease-in-out infinite;
+}
+
+.robot-hud-ring {
+  position: absolute;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: transparent;
+  pointer-events: none;
+}
+
+.robot-hud-ring--outer {
+  inset: -20px;
+  border-width: 1px;
+  border-top-color: rgba(0, 212, 255, 0.3);
+  border-right-color: rgba(0, 212, 255, 0.1);
+  animation: hud-rotate-slow 12s linear infinite;
+}
+
+.robot-hud-ring--inner {
+  inset: -8px;
+  border-width: 1px;
+  border-bottom-color: rgba(0, 212, 255, 0.2);
+  border-left-color: rgba(0, 212, 255, 0.1);
+  animation: hud-rotate-slow-ccw 8s linear infinite;
+}
+
+.robot-hud-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hud-el {
+  position: absolute;
+  font-size: 0.7rem;
+  color: rgba(0, 212, 255, 0.4);
+  line-height: 1;
+}
+
+.hud-el--tl { top: -28px; left: -28px; }
+.hud-el--tr { top: -28px; right: -28px; }
+.hud-el--bl { bottom: -28px; left: -28px; }
+.hud-el--br { bottom: -28px; right: -28px; }
+
+.robot-face {
+  position: relative;
+  z-index: 1;
+  width: 160px;
+  height: 180px;
+}
+
+.robot-head {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.robot-antenna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.antenna-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--clr-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--clr-cyan), 0 0 12px var(--clr-cyan-glow);
+  animation: antenna-pulse 1.5s ease-in-out infinite;
+}
+
+.antenna-stem {
+  width: 2px;
+  height: 16px;
+  background: linear-gradient(180deg, var(--clr-cyan), var(--clr-metal-2));
+}
+
+.robot-faceplate {
+  width: 140px;
+  flex: 1;
+  background: linear-gradient(
+    160deg,
+    var(--clr-metal-2) 0%,
+    var(--clr-metal-1) 40%,
+    var(--clr-bg-3) 100%
+  );
+  border: 1.5px solid var(--clr-border-2);
+  border-radius: 12px 12px 14px 14px;
+  padding: 12px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  box-shadow:
+    0 0 30px rgba(0, 212, 255, 0.1),
+    0 0 80px rgba(0, 212, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.robot-faceplate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent);
+  border-radius: 12px 12px 0 0;
+  pointer-events: none;
+}
+
+.robot-brow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.brow-line {
+  height: 2px;
+  width: 38%;
+  background: linear-gradient(90deg, transparent, var(--clr-cyan), transparent);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+.robot-eyes {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.robot-eye {
+  width: 44px;
+  height: 28px;
+}
+
+.eye-socket {
+  width: 100%;
+  height: 100%;
+  background: #020408;
+  border: 1.5px solid rgba(0, 212, 255, 0.5);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 10px rgba(0, 212, 255, 0.3),
+    0 0 8px rgba(0, 212, 255, 0.2);
+}
+
+.eye-glow {
+  position: absolute;
+  inset: 2px;
+  background: radial-gradient(ellipse at center, var(--clr-cyan) 0%, rgba(0, 212, 255, 0.4) 60%, transparent 100%);
+  border-radius: 4px;
+  animation: eye-glow-pulse 2s ease-in-out infinite;
+  transition: transform 0.12s ease;
+}
+
+.eye-pupil {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--clr-bg);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.eye-scan {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: eye-scan 3s ease-in-out infinite;
+  z-index: 3;
+}
+
+.robot-nose-ridge {
+  width: 2px;
+  height: 10px;
+  background: linear-gradient(180deg, var(--clr-cyan-dim), transparent);
+  border-radius: 1px;
+  align-self: center;
+}
+
+.robot-mouth {
+  position: relative;
+  height: 18px;
+  overflow: hidden;
+  transition: transform 0.15s ease;
+}
+
+.mouth-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
+  height: 100%;
+}
+
+.mouth-led {
+  background: rgba(0, 212, 255, 0.25);
+  border-radius: 1px;
+  height: 100%;
+  transition: all 0.1s ease;
+}
+
+.robot-mouth.speaking .mouth-led:nth-child(1) { animation: mouth-led-blink 0.15s ease-in-out infinite; background: var(--clr-cyan); }
+.robot-mouth.speaking .mouth-led:nth-child(2) { animation: mouth-led-blink 0.25s ease-in-out infinite 0.05s; background: var(--clr-cyan); }
+.robot-mouth.speaking .mouth-led:nth-child(3) { animation: mouth-led-blink 0.18s ease-in-out infinite 0.02s; background: var(--clr-cyan); }
+.robot-mouth.speaking .mouth-led:nth-child(4) { animation: mouth-led-blink 0.22s ease-in-out infinite 0.08s; background: var(--clr-cyan); }
+.robot-mouth.speaking .mouth-led:nth-child(5) { animation: mouth-led-blink 0.16s ease-in-out infinite 0.03s; background: var(--clr-cyan); }
+.robot-mouth.speaking .mouth-led:nth-child(6) { animation: mouth-led-blink 0.28s ease-in-out infinite 0.07s; background: var(--clr-cyan); }
+.robot-mouth.speaking .mouth-led:nth-child(7) { animation: mouth-led-blink 0.19s ease-in-out infinite 0.01s; background: var(--clr-cyan); }
+.robot-mouth.speaking .mouth-led:nth-child(8) { animation: mouth-led-blink 0.24s ease-in-out infinite 0.06s; background: var(--clr-cyan); }
+
+.robot-side-panel {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  width: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.robot-side-panel--left { left: -12px; }
+.robot-side-panel--right { right: -12px; }
+
+.panel-vent {
+  width: 100%;
+  height: 3px;
+  background: var(--clr-metal-1);
+  border: 1px solid var(--clr-border);
+  border-radius: 1px;
+}
+
+.robot-waveform {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  height: 36px;
+  width: 100%;
+}
+
+.waveform-bar {
+  width: 4px;
+  height: 4px;
+  background: var(--clr-cyan);
+  border-radius: 2px;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+.waveform-bar.active { opacity: 1; }
+
+.waveform-bar.active:nth-child(1) { animation: waveform-1 0.6s ease-in-out infinite; }
+.waveform-bar.active:nth-child(2) { animation: waveform-2 0.5s ease-in-out infinite 0.1s; }
+.waveform-bar.active:nth-child(3) { animation: waveform-3 0.7s ease-in-out infinite 0.05s; }
+.waveform-bar.active:nth-child(4) { animation: waveform-4 0.4s ease-in-out infinite 0.15s; }
+.waveform-bar.active:nth-child(5) { animation: waveform-5 0.65s ease-in-out infinite; }
+.waveform-bar.active:nth-child(6) { animation: waveform-6 0.55s ease-in-out infinite 0.08s; }
+.waveform-bar.active:nth-child(7) { animation: waveform-7 0.45s ease-in-out infinite 0.12s; }
+
+.robot-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: 20px;
+}
+
+.robot-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--clr-text-muted);
+  transition: background 0.3s, box-shadow 0.3s;
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+.robot-status-dot.active {
+  background: var(--clr-cyan);
+  box-shadow: 0 0 6px var(--clr-cyan);
+  animation: status-pulse-active 0.8s ease-in-out infinite;
+}
+
+.robot-status-text {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.robot-container[data-state="speaking"] .robot-status-text {
+  color: var(--clr-cyan);
+}
+
+.robot-container[data-state="speaking"] .robot-faceplate {
+  box-shadow:
+    0 0 40px rgba(0, 212, 255, 0.15),
+    0 0 80px rgba(0, 212, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.robot-container[data-state="greeting"] .antenna-dot {
+  background: #00ff88;
+  box-shadow: 0 0 8px #00ff88, 0 0 20px rgba(0, 255, 136, 0.4);
+}

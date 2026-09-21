@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pratheek D Jain — Full Stack Web & App Developer</title>
+  <meta name="description"
+    content="Portfolio of Pratheek D Jain, a Full Stack Web and App Developer specializing in TypeScript, Kotlin, Android, and modern web development." />
+  <meta name="keywords"
+    content="Pratheek D Jain, Full Stack Developer, Web Developer, Android Developer, Kotlin, TypeScript, Portfolio" />
+  <meta name="author" content="Pratheek D Jain" />
+
+  
+  <meta property="og:title" content="Pratheek D Jain — Full Stack Web & App Developer" />
+  <meta property="og:description"
+    content="Futuristic portfolio showcasing web, Android, and full-stack development work." />
+  <meta property="og:type" content="website" />
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet" />
+
+  
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/animations.css" />
+  <link rel="stylesheet" href="/styles/robot.css" />
+  <link rel="stylesheet" href="/styles/responsive.css" />
+</head>
+
+<body>
+
+  
+  <div id="cursor-dot" class="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" class="cursor-ring" aria-hidden="true"></div>
+
+  
+  <div class="bg-layer" aria-hidden="true">
+    
+    <div id="gears-container" class="gears-container"></div>
+    
+    <canvas id="particles-canvas" class="particles-canvas"></canvas>
+    
+    <div class="scanlines"></div>
+    
+    <div class="bg-grid"></div>
+    
+    <div class="bg-overlay"></div>
+  </div>
+
+  
+  <div id="boot-screen" class="boot-screen" role="dialog" aria-label="Boot sequence">
+    <div class="boot-content">
+      <div class="boot-logo">
+        <div class="boot-logo-ring"></div>
+        <div class="boot-logo-ring boot-logo-ring--2"></div>
+        <div class="boot-logo-inner">
+          <span class="boot-logo-icon">⚙</span>
+        </div>
+      </div>
+      <div id="boot-lines" class="boot-lines" aria-live="polite"></div>
+      <button id="enter-btn" class="enter-btn" aria-label="Enter portfolio">
+        <span class="enter-btn-bracket">[ </span>
+        <span class="enter-btn-text">ENTER PORTFOLIO</span>
+        <span class="enter-btn-bracket"> ]</span>
+        <span class="enter-btn-glow" aria-hidden="true"></span>
+      </button>
+      <p class="boot-skip-hint">Click to begin the experience</p>
+    </div>
+  </div>
+
+  
+  <div id="main-app" class="main-app" style="display:none; opacity:0;">
+
+    
+    <nav class="side-nav" aria-label="Section navigation">
+      <div class="nav-counter-display">
+        <span id="nav-counter" class="nav-counter">01 / 09</span>
+        <div class="nav-progress-track">
+          <div id="nav-progress-fill" class="nav-progress-fill"></div>
+        </div>
+      </div>
+      <div class="nav-dots" role="list" aria-label="Section list">
+        <div class="nav-dot nav-dot--active" role="listitem" data-cursor="pointer" tabindex="0"
+          aria-label="Hero section" title="Hero"></div>
+        <div class="nav-dot" role="listitem" data-cursor="pointer" tabindex="0" aria-label="About section"
+          title="About"></div>
+        <div class="nav-dot" role="listitem" data-cursor="pointer" tabindex="0" aria-label="Skills section"
+          title="Skills"></div>
+        <div class="nav-dot" role="listitem" data-cursor="pointer" tabindex="0" aria-label="Kotlin section"
+          title="Kotlin"></div>
+        <div class="nav-dot" role="listitem" data-cursor="pointer" tabindex="0" aria-label="Spam Shield section"
+          title="Spam Shield"></div>
+        <div class="nav-dot" role="listitem" data-cursor="pointer" tabindex="0" aria-label="Blood Donation section"
+          title="Blood Donation"></div>
+        <div class="nav-dot" role="listitem" data-cursor="pointer" tabindex="0" aria-label="Projects section"
+          title="Projects"></div>
+        <div class="nav-dot" role="listitem" data-cursor="pointer" tabindex="0" aria-label="Experience section"
+          title="Experience"></div>
+        <div class="nav-dot" role="listitem" data-cursor="pointer" tabindex="0" aria-label="Contact section"
+          title="Contact"></div>
+      </div>
+      <span id="nav-title" class="nav-title-label">PRATHEEK D JAIN</span>
+      <div class="nav-arrows">
+        <button id="nav-prev" class="btn-nav btn-nav--disabled" aria-label="Previous section">▲</button>
+        <button id="nav-next" class="btn-nav" aria-label="Next section">▼</button>
+      </div>
+    </nav>
+
+    
+    <div class="voice-controls" role="toolbar" aria-label="Voice controls">
+      <button id="voice-toggle" class="voice-toggle" aria-label="Voice ON">
+        <span class="voice-icon">🔊</span>
+        <span class="voice-label">Voice ON</span>
+      </button>
+      <button id="replay-btn" class="replay-btn" aria-label="Replay explanation">
+        <span>↺</span> Replay
+      </button>
+    </div>
+
+    
+    <main class="stage" id="main-stage">
+
+      
+      <section id="section-hero" class="section section--hero" aria-labelledby="hero-heading">
+        <div class="section-content">
+          <div class="hero-tag" data-stagger>
+            <span class="tag-bracket">//</span> DEVELOPER PROFILE LOADED
+          </div>
+
+          <h1 id="hero-heading" class="hero-name" data-stagger>
+            <span class="hero-name-line">PRATHEEK</span>
+            <span class="hero-name-line hero-name-line--accent">D JAIN</span>
+          </h1>
+
+          <p class="hero-subtitle" data-stagger>Full Stack Web &amp; App Developer</p>
+          <p class="hero-desc" data-stagger>Building web experiences, Android applications and intelligent digital
+            solutions.</p>
+
+          <div class="tech-badges" data-stagger aria-label="Technologies">
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">TypeScript</span>
+            <span class="badge badge--accent">Kotlin</span>
+            <span class="badge badge--accent">Android</span>
+            <span class="badge">Full Stack</span>
+            <span class="badge">Git</span>
+            <span class="badge">APIs</span>
+            <span class="badge">Databases</span>
+          </div>
+
+          <div class="hero-hud" data-stagger aria-hidden="true">
+            <div class="hud-line hud-line--h"></div>
+            <div class="hud-line hud-line--v"></div>
+            <div class="hud-corner hud-corner--tl"></div>
+            <div class="hud-corner hud-corner--br"></div>
+          </div>
+
+          
+          <div class="speech-text-container" aria-live="polite" aria-label="AI assistant speech"></div>
+        </div>
+      </section>
+
+      
+      <section id="section-about" class="section section--about" aria-labelledby="about-heading">
+        <div class="section-content">
+          <div class="section-tag" data-stagger>
+            <span class="tag-bracket">◈</span> SYSTEM DIAGNOSTIC
+          </div>
+          <h2 id="about-heading" class="section-title" data-stagger>ABOUT ME</h2>
+
+          <div class="about-grid">
+            <div class="about-card diagnostic-card" data-stagger>
+              <div class="diag-header">
+                <span class="diag-label">DEVELOPER.PROFILE</span>
+                <span class="diag-status diag-status--ok">ACTIVE</span>
+              </div>
+              <div class="diag-body">
+                <p class="about-text">
+                  Hi, I'm <strong>Pratheek D Jain</strong>. I am a Full Stack Web &amp; App Developer passionate
+                  about creating modern web applications, Android applications, and practical digital solutions.
+                </p>
+                <p class="about-text">
+                  I enjoy turning ideas into functional applications and continuously learning new technologies
+                  to stay at the forefront of development.
+                </p>
+              </div>
+            </div>
+
+            <div class="about-stats" data-stagger>
+              <div class="stat-item">
+                <span class="stat-label">SPECIALIZATION</span>
+                <span class="stat-value">Full Stack + Mobile</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">MOBILE PLATFORM</span>
+                <span class="stat-value">Android (Kotlin)</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">STATUS</span>
+                <span class="stat-value stat-value--active">CONTINUOUSLY LEARNING</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">FOCUS</span>
+                <span class="stat-value">Building Real Solutions</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="speech-text-container" aria-live="polite"></div>
+        </div>
+      </section>
+
+      
+      <section id="section-skills" class="section section--skills" aria-labelledby="skills-heading">
+        <div class="section-content">
+          <div class="section-tag" data-stagger>
+            <span class="tag-bracket">⬡</span> SYSTEM MODULES
+          </div>
+          <h2 id="skills-heading" class="section-title" data-stagger>TECH STACK</h2>
+
+          <div class="skills-grid">
+            
+            <div class="skill-category" data-stagger>
+              <div class="skill-cat-header">
+                <span class="skill-cat-icon">⬡</span>
+                <span class="skill-cat-name">FRONTEND</span>
+              </div>
+              <div class="skill-cards">
+                <div class="skill-card" data-cursor="pointer" tabindex="0" role="button" aria-label="HTML5">
+                  <div class="skill-card-icon">🔶</div>
+                  <div class="skill-card-name">HTML5</div>
+                  <div class="skill-card-glow"></div>
+                </div>
+                <div class="skill-card" data-cursor="pointer" tabindex="0" role="button" aria-label="CSS3">
+                  <div class="skill-card-icon">🔷</div>
+                  <div class="skill-card-name">CSS3</div>
+                  <div class="skill-card-glow"></div>
+                </div>
+                <div class="skill-card" data-cursor="pointer" tabindex="0" role="button" aria-label="JavaScript">
+                  <div class="skill-card-icon">⚡</div>
+                  <div class="skill-card-name">JavaScript</div>
+                  <div class="skill-card-glow"></div>
+                </div>
+                <div class="skill-card" data-cursor="pointer" tabindex="0" role="button" aria-label="TypeScript">
+                  <div class="skill-card-icon">🔵</div>
+                  <div class="skill-card-name">TypeScript</div>
+                  <div class="skill-card-glow"></div>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="skill-category" data-stagger>
+              <div class="skill-cat-header">
+                <span class="skill-cat-icon">◈</span>
+                <span class="skill-cat-name">MOBILE</span>
+              </div>
+              <div class="skill-cards">
+                <div class="skill-card skill-card--accent" data-cursor="pointer" tabindex="0" role="button"
+                  aria-label="Kotlin">
+                  <div class="skill-card-icon">🟣</div>
+                  <div class="skill-card-name">Kotlin</div>
+                  <div class="skill-card-glow"></div>
+                </div>
+                <div class="skill-card skill-card--accent" data-cursor="pointer" tabindex="0" role="button"
+                  aria-label="Android">
+                  <div class="skill-card-icon">🟢</div>
+                  <div class="skill-card-name">Android</div>
+                  <div class="skill-card-glow"></div>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="skill-category" data-stagger>
+              <div class="skill-cat-header">
+                <span class="skill-cat-icon">⬢</span>
+                <span class="skill-cat-name">BACKEND &amp; FULL STACK</span>
+              </div>
+              <div class="skill-cards">
+                <div class="skill-card" data-cursor="pointer" tabindex="0" role="button" aria-label="APIs">
+                  <div class="skill-card-icon">🔗</div>
+                  <div class="skill-card-name">APIs</div>
+                  <div class="skill-card-glow"></div>
+                </div>
+                <div class="skill-card" data-cursor="pointer" tabindex="0" role="button" aria-label="Databases">
+                  <div class="skill-card-icon">🗄️</div>
+                  <div class="skill-card-name">Databases</div>
+                  <div class="skill-card-glow"></div>
+                </div>
+                <div class="skill-card" data-cursor="pointer" tabindex="0" role="button"
+                  aria-label="Full Stack Development">
+                  <div class="skill-card-icon">🔄</div>
+                  <div class="skill-card-name">Full Stack</div>
+                  <div class="skill-card-glow"></div>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="skill-category" data-stagger>
+              <div class="skill-cat-header">
+                <span class="skill-cat-icon">⚙</span>
+                <span class="skill-cat-name">TOOLS</span>
+              </div>
+              <div class="skill-cards">
+                <div class="skill-card" data-cursor="pointer" tabindex="0" role="button" aria-label="Git">
+                  <div class="skill-card-icon">🔀</div>
+                  <div class="skill-card-name">Git</div>
+                  <div class="skill-card-glow"></div>
+                </div>
+                <div class="skill-card" data-cursor="pointer" tabindex="0" role="button" aria-label="GitHub">
+                  <div class="skill-card-icon">🐙</div>
+                  <div class="skill-card-name">GitHub</div>
+                  <div class="skill-card-glow"></div>
+                </div>
+                <div class="skill-card" data-cursor="pointer" tabindex="0" role="button" aria-label="Dev Tools">
+                  <div class="skill-card-icon">🛠️</div>
+                  <div class="skill-card-name">Dev Tools</div>
+                  <div class="skill-card-glow"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="speech-text-container" aria-live="polite"></div>
+        </div>
+      </section>
+
+      
+      <section id="section-kotlin" class="section section--kotlin" aria-labelledby="kotlin-heading">
+        <div class="section-content">
+          <div class="section-tag" data-stagger>
+            <span class="tag-bracket">◈</span> MOBILE DEVELOPMENT MODULE
+          </div>
+          <h2 id="kotlin-heading" class="section-title section-title--purple" data-stagger>KOTLIN / ANDROID</h2>
+
+          <div class="kotlin-layout">
+            <div class="kotlin-info">
+              <p class="kotlin-desc" data-stagger>
+                Currently mastering <strong>Kotlin</strong> — the modern, concise language for Android development.
+                Applying these skills to build real-world Android applications that solve practical problems.
+              </p>
+
+              <div class="kotlin-features" data-stagger>
+                <div class="feature-tag"><span>◈</span> Kotlin Language</div>
+                <div class="feature-tag"><span>◈</span> Android SDK</div>
+                <div class="feature-tag"><span>◈</span> SMS Processing</div>
+                <div class="feature-tag"><span>◈</span> App Architecture</div>
+                <div class="feature-tag"><span>◈</span> UI/UX Design</div>
+                <div class="feature-tag"><span>◈</span> Real-World Apps</div>
+              </div>
+
+              <div class="kotlin-status" data-stagger>
+                <div class="status-bar-item">
+                  <span class="status-bar-label">KOTLIN PROFICIENCY</span>
+                  <div class="status-bar-track">
+                    <div class="status-bar-fill" style="width: 65%"></div>
+                  </div>
+                  <span class="status-bar-pct">LEARNING</span>
+                </div>
+                <div class="status-bar-item">
+                  <span class="status-bar-label">ANDROID DEVELOPMENT</span>
+                  <div class="status-bar-track">
+                    <div class="status-bar-fill" style="width: 60%"></div>
+                  </div>
+                  <span class="status-bar-pct">ACTIVE</span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="phone-mockup" data-stagger aria-hidden="true">
+              <div class="phone-frame">
+                <div class="phone-notch"></div>
+                <div class="phone-screen">
+                  <div class="phone-status-bar">
+                    <span>9:41</span>
+                    <span>●●●</span>
+                  </div>
+                  <div class="phone-app-header">
+                    <div class="phone-app-icon">🛡️</div>
+                    <span>Spam Shield</span>
+                  </div>
+                  <div class="phone-app-content">
+                    <div class="phone-msg phone-msg--blocked">
+                      <div class="phone-msg-tag">⚠ SPAM DETECTED</div>
+                      <div class="phone-msg-text">Congratulations! You've won...</div>
+                    </div>
+                    <div class="phone-msg phone-msg--safe">
+                      <div class="phone-msg-tag">✓ SAFE</div>
+                      <div class="phone-msg-text">Hey, are you free tomorrow?</div>
+                    </div>
+                    <div class="phone-msg phone-msg--blocked">
+                      <div class="phone-msg-tag">⚠ SPAM DETECTED</div>
+                      <div class="phone-msg-text">URGENT: Your account has...</div>
+                    </div>
+                  </div>
+                  <div class="phone-scan-line"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="speech-text-container" aria-live="polite"></div>
+        </div>
+      </section>
+
+      
+      <section id="section-spamshield" class="section section--spamshield" aria-labelledby="spamshield-heading">
+        <div class="section-content">
+          <div class="section-tag" data-stagger>
+            <span class="tag-bracket">■</span> FEATURED PROJECT
+          </div>
+          <h2 id="spamshield-heading" class="section-title section-title--purple" data-stagger>SPAM SHIELD</h2>
+
+          <div class="project-showcase">
+            <div class="project-main-card" data-stagger>
+              <div class="project-card-header">
+                <div class="project-icon">🛡️</div>
+                <div>
+                  <div class="project-card-title">Spam Shield</div>
+                  <div class="project-card-subtitle">Android SMS Detection App</div>
+                </div>
+                <div class="project-badge project-badge--purple">Kotlin</div>
+              </div>
+
+              <p class="project-card-desc">
+                An Android application designed to detect and block spam SMS messages. Built with Kotlin,
+                it uses intelligent classification to protect users from unwanted messages in real time.
+              </p>
+
+              <div class="project-tech-tags">
+                <span class="tech-tag tech-tag--purple">Kotlin</span>
+                <span class="tech-tag tech-tag--purple">Android</span>
+                <span class="tech-tag">SMS API</span>
+                <span class="tech-tag">Classification</span>
+                <span class="tech-tag">Filtering</span>
+              </div>
+
+              <div class="project-feature-grid">
+                <div class="proj-feature">
+                  <span class="proj-feature-icon">📱</span>
+                  <span>SMS Detection</span>
+                </div>
+                <div class="proj-feature">
+                  <span class="proj-feature-icon">🤖</span>
+                  <span>Spam Classification</span>
+                </div>
+                <div class="proj-feature">
+                  <span class="proj-feature-icon">🔒</span>
+                  <span>Message Filtering</span>
+                </div>
+                <div class="proj-feature">
+                  <span class="proj-feature-icon">⚡</span>
+                  <span>Real-time Analysis</span>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                
+                <a href="#" class="btn-project btn-project--primary" data-cursor="pointer"
+                  aria-label="View Spam Shield project">
+                  View Project
+                </a>
+                <a href="#" class="btn-project btn-project--secondary" data-cursor="pointer"
+                  aria-label="View Spam Shield source code">
+                  &lt;/&gt; Source
+                </a>
+              </div>
+            </div>
+
+            <div class="project-stats-panel" data-stagger>
+              <div class="stat-panel-item">
+                <span class="stat-panel-label">PLATFORM</span>
+                <span class="stat-panel-value">Android</span>
+              </div>
+              <div class="stat-panel-item">
+                <span class="stat-panel-label">LANGUAGE</span>
+                <span class="stat-panel-value">Kotlin</span>
+              </div>
+              <div class="stat-panel-item">
+                <span class="stat-panel-label">CATEGORY</span>
+                <span class="stat-panel-value">Security / Utility</span>
+              </div>
+              <div class="stat-panel-item">
+                <span class="stat-panel-label">STATUS</span>
+                <span class="stat-panel-value stat-panel-value--active">BUILT</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="speech-text-container" aria-live="polite"></div>
+        </div>
+      </section>
+
+      
+      <section id="section-blooddonation" class="section section--blood" aria-labelledby="blood-heading">
+        <div class="section-content">
+          <div class="section-tag" data-stagger>
+            <span class="tag-bracket" style="color: #ff3366">♥</span> FEATURED PROJECT
+          </div>
+          <h2 id="blood-heading" class="section-title section-title--red" data-stagger>BLOOD DONATION PLATFORM</h2>
+
+          <div class="project-showcase">
+            <div class="project-main-card project-main-card--red" data-stagger>
+              <div class="project-card-header">
+                <div class="project-icon">♥</div>
+                <div>
+                  <div class="project-card-title">Blood Donation Platform</div>
+                  <div class="project-card-subtitle">Full Stack Web Platform</div>
+                </div>
+                <div class="project-badge project-badge--red">Web</div>
+              </div>
+
+              <p class="project-card-desc">
+                A web platform connecting donors with blood donation resources. Focused on accessibility,
+                intuitive user experience, and making critical donation information easy to find and use.
+              </p>
+
+              <div class="project-tech-tags">
+                <span class="tech-tag tech-tag--red">HTML</span>
+                <span class="tech-tag tech-tag--red">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Full Stack</span>
+                <span class="tech-tag">Databases</span>
+              </div>
+
+              <div class="project-feature-grid">
+                <div class="proj-feature">
+                  <span class="proj-feature-icon">🩸</span>
+                  <span>Donor Connection</span>
+                </div>
+                <div class="proj-feature">
+                  <span class="proj-feature-icon">📍</span>
+                  <span>Resource Access</span>
+                </div>
+                <div class="proj-feature">
+                  <span class="proj-feature-icon">💻</span>
+                  <span>Web Platform</span>
+                </div>
+                <div class="proj-feature">
+                  <span class="proj-feature-icon">♿</span>
+                  <span>Accessibility</span>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="#" class="btn-project btn-project--primary btn-project--red" data-cursor="pointer"
+                  aria-label="View Blood Donation Platform">
+                  View Project
+                </a>
+                <a href="#" class="btn-project btn-project--secondary" data-cursor="pointer"
+                  aria-label="View Blood Donation source code">
+                  &lt;/&gt; Source
+                </a>
+              </div>
+            </div>
+
+            <div class="project-stats-panel" data-stagger>
+              <div class="stat-panel-item">
+                <span class="stat-panel-label">PLATFORM</span>
+                <span class="stat-panel-value">Web</span>
+              </div>
+              <div class="stat-panel-item">
+                <span class="stat-panel-label">TYPE</span>
+                <span class="stat-panel-value">Full Stack</span>
+              </div>
+              <div class="stat-panel-item">
+                <span class="stat-panel-label">IMPACT</span>
+                <span class="stat-panel-value">Social Good</span>
+              </div>
+              <div class="stat-panel-item">
+                <span class="stat-panel-label">STATUS</span>
+                <span class="stat-panel-value stat-panel-value--active">LIVE</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="speech-text-container" aria-live="polite"></div>
+        </div>
+      </section>
+
+      
+      <section id="section-projects" class="section section--projects" aria-labelledby="projects-heading">
+        <div class="section-content">
+          <div class="section-tag" data-stagger>
+            <span class="tag-bracket">▦</span> PROJECT ARCHIVE
+          </div>
+          <h2 id="projects-heading" class="section-title" data-stagger>WEB PROJECTS</h2>
+
+          <div class="projects-grid">
+            
+            <article class="project-card" data-stagger data-cursor="pointer">
+              <div class="project-card-top">
+                <div class="project-card-num">01</div>
+                <div class="project-card-links">
+                  <a href="#" class="project-link" aria-label="View Project Alpha">↗</a>
+                  <a href="#" class="project-link" aria-label="Project Alpha GitHub">&lt;/&gt;</a>
+                </div>
+              </div>
+              <h3 class="project-card-name">Project Alpha</h3>
+              <p class="project-card-brief">
+                A web application showcasing modern frontend development techniques and interactive user experiences.
+                
+              </p>
+              <div class="project-card-tech">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <div class="project-card-overlay"></div>
+            </article>
+
+            
+            <article class="project-card" data-stagger data-cursor="pointer">
+              <div class="project-card-top">
+                <div class="project-card-num">02</div>
+                <div class="project-card-links">
+                  <a href="#" class="project-link" aria-label="View Project Beta">↗</a>
+                  <a href="#" class="project-link" aria-label="Project Beta GitHub">&lt;/&gt;</a>
+                </div>
+              </div>
+              <h3 class="project-card-name">Project Beta</h3>
+              <p class="project-card-brief">
+                A full-stack web solution built to solve real-world problems with clean code and thoughtful design.
+                
+              </p>
+              <div class="project-card-tech">
+                <span>TypeScript</span><span>CSS</span><span>APIs</span>
+              </div>
+              <div class="project-card-overlay"></div>
+            </article>
+
+            
+            <article class="project-card" data-stagger data-cursor="pointer">
+              <div class="project-card-top">
+                <div class="project-card-num">03</div>
+                <div class="project-card-links">
+                  <a href="#" class="project-link" aria-label="View Project Gamma">↗</a>
+                  <a href="#" class="project-link" aria-label="Project Gamma GitHub">&lt;/&gt;</a>
+                </div>
+              </div>
+              <h3 class="project-card-name">Project Gamma</h3>
+              <p class="project-card-brief">
+                An innovative web project demonstrating full-stack capabilities and creative problem solving.
+                
+              </p>
+              <div class="project-card-tech">
+                <span>JavaScript</span><span>Databases</span><span>Git</span>
+              </div>
+              <div class="project-card-overlay"></div>
+            </article>
+          </div>
+
+          <div class="speech-text-container" aria-live="polite"></div>
+        </div>
+      </section>
+
+      
+      <section id="section-experience" class="section section--experience" aria-labelledby="exp-heading">
+        <div class="section-content">
+          <div class="section-tag" data-stagger>
+            <span class="tag-bracket">◐</span> GROWTH MATRIX
+          </div>
+          <h2 id="exp-heading" class="section-title" data-stagger>LEARNING MATRIX</h2>
+
+          <div class="timeline">
+            <div class="timeline-item" data-stagger>
+              <div class="timeline-dot timeline-dot--now"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">NOW</div>
+                <h3 class="timeline-title">Mastering Kotlin &amp; Android</h3>
+                <p class="timeline-desc">Diving deep into Kotlin for Android development, building real-world
+                  applications like Spam Shield.</p>
+                <div class="timeline-tech">
+                  <span>Kotlin</span><span>Android</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item" data-stagger>
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">ACTIVE</div>
+                <h3 class="timeline-title">Full Stack Web Development</h3>
+                <p class="timeline-desc">Building complete web experiences from frontend interfaces to backend APIs and
+                  databases.</p>
+                <div class="timeline-tech">
+                  <span>TypeScript</span><span>JavaScript</span><span>APIs</span><span>Databases</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item" data-stagger>
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">CORE</div>
+                <h3 class="timeline-title">Frontend Mastery</h3>
+                <p class="timeline-desc">Strong foundation in HTML5, CSS3, JavaScript, and TypeScript for modern web
+                  interfaces.</p>
+                <div class="timeline-tech">
+                  <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item" data-stagger>
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">BASE</div>
+                <h3 class="timeline-title">Developer Foundation</h3>
+                <p class="timeline-desc">Git version control, collaborative development, and clean code principles.</p>
+                <div class="timeline-tech">
+                  <span>Git</span><span>GitHub</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="speech-text-container" aria-live="polite"></div>
+        </div>
+      </section>
+
+      
+      <section id="section-contact" class="section section--contact" aria-labelledby="contact-heading">
+        <div class="section-content">
+          <div class="section-tag" data-stagger>
+            <span class="tag-bracket">✦</span> TRANSMISSION MODULE
+          </div>
+          <h2 id="contact-heading" class="section-title" data-stagger>LET'S BUILD SOMETHING</h2>
+          <p class="contact-subtitle" data-stagger>Have an idea? Let's collaborate and build something extraordinary.
+          </p>
+
+          <div class="contact-layout">
+            <div class="contact-info" data-stagger>
+              <div class="contact-name">Pratheek D Jain</div>
+              <div class="contact-role">Full Stack Web &amp; App Developer</div>
+              <a href="mailto:jainpratheek@gmail.com" class="contact-email" data-cursor="pointer">
+                jainpratheek@gmail.com
+              </a>
+
+              <div class="contact-socials">
+                <a href="#" data-social="github" class="social-link" data-cursor="pointer" target="_blank"
+                  rel="noopener noreferrer" aria-label="GitHub profile">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                  GitHub
+                </a>
+                <a href="#" data-social="linkedin" class="social-link" data-cursor="pointer" target="_blank"
+                  rel="noopener noreferrer" aria-label="LinkedIn profile">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+
+            
+            <form id="contact-form" class="contact-form" novalidate aria-label="Contact form" data-stagger>
+              <div class="form-group">
+                <label for="contact-name" class="form-label">NAME</label>
+                <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your name"
+                  autocomplete="name" required aria-required="true" />
+                <span class="field-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">EMAIL</label>
+                <input type="email" id="contact-email" name="email" class="form-input" placeholder="your@email.com"
+                  autocomplete="email" required aria-required="true" />
+                <span class="field-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">MESSAGE</label>
+                <textarea id="contact-message" name="message" class="form-input form-textarea"
+                  placeholder="Tell me about your project..." rows="4" required aria-required="true"></textarea>
+                <span class="field-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="form-status" role="alert" aria-live="polite"></div>
+
+              <button type="submit" class="btn-submit" data-cursor="pointer" aria-label="Send message">
+                <span class="btn-text">SEND MESSAGE</span>
+                <span class="btn-loading-spinner" aria-hidden="true"></span>
+                <span class="btn-bracket">[ </span>
+                <span class="btn-bracket"> ]</span>
+              </button>
+            </form>
+          </div>
+
+          
+          <footer class="portfolio-footer" data-stagger>
+            <div class="footer-name">PRATHEEK D JAIN</div>
+            <div class="footer-role">FULL STACK WEB &amp; APP DEVELOPER</div>
+            <div class="footer-stack">KOTLIN • ANDROID • TYPESCRIPT • WEB • FULL STACK</div>
+            <a href="mailto:jainpratheek@gmail.com" class="footer-email">jainpratheek@gmail.com</a>
+            <div class="footer-copy">Built with TypeScript, Vite &amp; a passion for great interfaces.</div>
+          </footer>
+
+          <div class="speech-text-container" aria-live="polite"></div>
+        </div>
+      </section>
+
+    </main>
+
+    
+    <aside id="robot-container" class="robot-container" aria-label="AI Assistant Robot" data-state="idle">
+
+      
+      <div class="robot-face-wrapper">
+        <div class="robot-hud-ring robot-hud-ring--outer" aria-hidden="true"></div>
+        <div class="robot-hud-ring robot-hud-ring--inner" aria-hidden="true"></div>
+
+        <div class="robot-face" aria-hidden="true">
+          
+          <div class="robot-head">
+            
+            <div class="robot-antenna">
+              <div class="antenna-dot"></div>
+              <div class="antenna-stem"></div>
+            </div>
+
+            
+            <div class="robot-faceplate">
+              
+              <div class="robot-brow">
+                <div class="brow-line brow-left"></div>
+                <div class="brow-line brow-right"></div>
+              </div>
+
+              
+              <div class="robot-eyes">
+                <div class="robot-eye robot-eye-left" aria-hidden="true">
+                  <div class="eye-socket">
+                    <div class="eye-glow"></div>
+                    <div class="eye-pupil"></div>
+                    <div class="eye-scan"></div>
+                  </div>
+                </div>
+                <div class="robot-eye robot-eye-right" aria-hidden="true">
+                  <div class="eye-socket">
+                    <div class="eye-glow"></div>
+                    <div class="eye-pupil"></div>
+                    <div class="eye-scan"></div>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div class="robot-nose-ridge"></div>
+
+              
+              <div class="robot-mouth" aria-hidden="true">
+                <div class="mouth-grid">
+                  <div class="mouth-led"></div>
+                  <div class="mouth-led"></div>
+                  <div class="mouth-led"></div>
+                  <div class="mouth-led"></div>
+                  <div class="mouth-led"></div>
+                  <div class="mouth-led"></div>
+                  <div class="mouth-led"></div>
+                  <div class="mouth-led"></div>
+                </div>
+              </div>
+
+              
+              <div class="robot-side-panel robot-side-panel--left" aria-hidden="true">
+                <div class="panel-vent"></div>
+                <div class="panel-vent"></div>
+                <div class="panel-vent"></div>
+              </div>
+              <div class="robot-side-panel robot-side-panel--right" aria-hidden="true">
+                <div class="panel-vent"></div>
+                <div class="panel-vent"></div>
+                <div class="panel-vent"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="robot-hud-elements" aria-hidden="true">
+          <div class="hud-el hud-el--tl">◤</div>
+          <div class="hud-el hud-el--tr">◥</div>
+          <div class="hud-el hud-el--bl">◣</div>
+          <div class="hud-el hud-el--br">◢</div>
+        </div>
+      </div>
+
+      
+      <div class="robot-waveform" aria-hidden="true">
+        <div class="waveform-bar"></div>
+        <div class="waveform-bar"></div>
+        <div class="waveform-bar"></div>
+        <div class="waveform-bar"></div>
+        <div class="waveform-bar"></div>
+        <div class="waveform-bar"></div>
+        <div class="waveform-bar"></div>
+      </div>
+
+      
+      <div class="robot-status" role="status" aria-live="polite">
+        <div class="robot-status-dot"></div>
+        <span class="robot-status-text">AI ASSISTANT — READY</span>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
