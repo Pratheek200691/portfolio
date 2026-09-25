@@ -3,7 +3,7 @@ export const EMAIL_CONFIG = {
   SERVICE_ID: 'YOUR_EMAILJS_SERVICE_ID',   
   TEMPLATE_ID: 'YOUR_EMAILJS_TEMPLATE_ID', 
   PUBLIC_KEY: 'YOUR_EMAILJS_PUBLIC_KEY',   
-  TO_EMAIL: 'jainpratheek@gmail.com',
+  TO_EMAIL: 'jainpratheekd@gmail.com',
 };
 
 export const SOCIAL_LINKS = {
@@ -11,3 +11,4 @@ export const SOCIAL_LINKS = {
   LINKEDIN: 'https://www.linkedin.com/in/pratheek-d-jain',   
   
 };
+

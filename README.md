@@ -56,7 +56,7 @@ export const EMAIL_CONFIG = {
   SERVICE_ID: 'service_abc123',    // ← Your Service ID
   TEMPLATE_ID: 'template_xyz789', // ← Your Template ID
   PUBLIC_KEY: 'abcDEFghiJKL',     // ← Your Public Key
-  TO_EMAIL: 'jainpratheek@gmail.com',
+  TO_EMAIL: 'jainpratheekd@gmail.com',
 };
 ```
 
@@ -186,4 +186,4 @@ Output goes to the `dist/` folder — deploy anywhere (Netlify, Vercel, GitHub P
 
 ## 📞 Contact
 
-**Pratheek D Jain** — jainpratheek@gmail.com
+**Pratheek D Jain** — jainpratheekd@gmail.com
