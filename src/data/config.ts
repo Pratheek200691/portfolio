@@ -7,7 +7,7 @@ export const EMAIL_CONFIG = {
 };
 
 export const SOCIAL_LINKS = {
-  GITHUB: 'https://github.com/YOUR_GITHUB_USERNAME',           
-  LINKEDIN: 'https://www.linkedin.com/in/YOUR_LINKEDIN_ID',   
+  GITHUB: 'https://github.com/Pratheek200691',           
+  LINKEDIN: 'https://www.linkedin.com/in/pratheek-d-jain',   
   
 };
